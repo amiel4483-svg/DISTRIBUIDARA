@@ -26,7 +26,9 @@ jobs:
         cache-disabled: true
 
     - name: Compilar APK
-      run: gradle assembleDebug --no-daemon --no-configuration-cache --no-parallel
+      run: gradle assembleDebug --no-daemon --no-configuration-cache --no-parallel -Dksp.run.in.sandbox=true
+      env:
+        GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx2048m -Dkotlin.compiler.execution.strategy=in-process"
 
     - name: Subir el APK como Artefacto
       uses: actions/upload-artifact@v4
