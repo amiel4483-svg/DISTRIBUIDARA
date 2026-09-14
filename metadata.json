@@ -1,0 +1,6 @@
+{
+  "name": "DISTRIBUIDORA DANIISA",
+  "description": "Aplicación de acceso y gestión para DISTRIBUIDORA DANIISA con inicio de sesión seguro y verificación de credenciales.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
