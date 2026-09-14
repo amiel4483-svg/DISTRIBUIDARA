@@ -19,11 +19,13 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Configurar Gradle
+    - name: Configurar Gradle 8.5
       uses: gradle/actions/setup-gradle@v3
+      with:
+        gradle-version: '8.5'
 
     - name: Compilar APK de depuración (Debug)
-      run: gradle assembleDebug
+      run: gradle assembleDebug --stacktrace
 
     - name: Subir el APK como Artefacto
       uses: actions/upload-artifact@v4
