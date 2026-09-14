@@ -19,14 +19,13 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Generar ejecutable Gradle Wrapper
-      run: gradle wrapper
+    - name: Configurar Gradle 8.2
+      uses: gradle/actions/setup-gradle@v3
+      with:
+        gradle-version: '8.2'
 
-    - name: Dar permisos de ejecución a gradlew
-      run: chmod +x gradlew
-
-    - name: Compilar APK de depuración
-      run: ./gradlew assembleDebug --stacktrace
+    - name: Compilar APK
+      run: gradle assembleDebug --no-daemon --no-configuration-cache
 
     - name: Subir el APK como Artefacto
       uses: actions/upload-artifact@v4
